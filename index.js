@@ -18,3 +18,32 @@ fetch(url)
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
+
+const ctx = document.getElementById("myChart").getContext("2d");
+const myChart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"], // X-axis labels
+    datasets: [
+      {
+        label: "Line A",
+        data: [10, 20, 15, 30, 25],
+        borderColor: "blue",
+        fill: false,
+      },
+      {
+        label: "Line B",
+        data: [5, 15, 10, 20, 18],
+        borderColor: "red",
+        fill: false,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: "top" },
+      title: { display: true, text: "Simple Multi-Line Graph" },
+    },
+  },
+});
